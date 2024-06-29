@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #848afb, #b3b3c4);
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .dropdown ul {
+      display: none;
+      position: absolute;
+      background-color: #38bdf8;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  
+    .dropdown:hover ul {
+      display: block;
+    }
+  
+    .dropdown ul li {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+  
+    .dropdown ul li:hover {
+      background-color: #005f73;
+    }
+  </style>
+</head>
+<body>
+  <nav class="flex items-center h-16 w-full text-center text-lg bg-slate-800 text-zinc-50">
+    <div class="grid grid-cols-10 w-full p-5">
+      <a class="flex text-xl justify-start font-bold" href="/home.html">CP Portal</a>
+      <a class="flex justify-start" href="/problems.html">Problems</a>
+      <a class="flex justify-start" href="/contests.html">Contest</a>
+      <a class="flex justify-start" href="">Resources</a>
+      <a class="col-start-10 flex justify-end" href="/login.html" >Login/SignUp</a>
+    </div>
+  </nav>
+
+  <div class="flex justify-center">
+    <div class="flex items-center border rounded-xl text-center text-lg bg-blue-300 text-zinc-50 mt-2 p-4">
+      <div class="w-full items-center">
+        <div class="justify-self-center cursor-pointer dropdown">Platform  ▼
+          <ul class="absolute bg-sky-600 w-40 hidden rounded-lg">
+            <li>Codeforces</li>
+            <li>CodeChef</li>
+            <li>LeetCode</li>
+            <li>AtCoder</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p-10 pt-7 pb-2 font-bold">
+      <div class="grid grid-cols-10 w-full p-5 align-top border rounded-t-xl bg-pink-800">
+        <div class="flex justify-self-center col-span-2">Start/End time</div>
+        <div class="flex justify-self-center">Duration</div>
+        <div class="flex justify-self-center">Time left</div>
+        <div class="flex justify-center col-span-3">Event</div>
+        <div class="flex justify-center col-span-2">Register</div>
+        <div class="flex justify-start" >Add to calender</div>
+      </div>
+  </div>
+
+  <div class="p-10 py-2">
+    <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
+      <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
+      <div class="flex justify-self-center" href="">Duration</div>
+      <div class="flex justify-self-center" href="">Time left</div>
+      <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round 954 (Div. 3)	</a>
+      <div class="flex justify-center col-span-2">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="p-10 py-2">
+    <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
+      <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
+      <div class="flex justify-self-center" href="">Duration</div>
+      <div class="flex justify-self-center" href="">Time left</div>
+      <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round 954 (Div. 3)	</a>
+      <div class="flex justify-center col-span-2">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-10 py-2">
+    <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
+      <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
+      <div class="flex justify-self-center" href="">Duration</div>
+      <div class="flex justify-self-center" href="">Time left</div>
+      <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round 954 (Div. 3)	</a>
+      <div class="flex justify-center col-span-2">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-10 py-2">
+    <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
+      <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
+      <div class="flex justify-self-center" href="">Duration</div>
+      <div class="flex justify-self-center" href="">Time left</div>
+      <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round 954 (Div. 3)	</a>
+      <div class="flex justify-center col-span-2">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
+      </div>
+      <div class="flex justify-center">
+        <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
