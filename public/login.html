@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .thecard {
+      position: relative;
+      height: 320px;
+      width: 250px;
+      transform-style: preserve-3d;
+      transition: all 0.5s ease;
+      background: rgb(196 181 253);
+    }
+
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    .thefront,
+    .theback {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .thefront {
+      background-color: rgb(160, 188, 97);
+      transform: rotateY(0deg);
+    }
+
+    .theback {
+      background-color: rgb(247, 166, 90);
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+
+<body class="bg-violet-300">
+  <a href="/home.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-1 mt-1 ml-1 rounded">Home</a>
+  <div class="flex justify-center items-center h-screen flex-col">
+    <div id="card" class="thecard">
+      <div class="thefront items-center grid place-content-around py-5">
+        <div class="font-bold text-lime-950 text-xl">Log In</div>
+        <form action="/login" method="POST"></form>
+        <div>
+          <label class="font-bold text-lime-800" for="login_username">Username</label>
+          <input type="text" class="border rounded-xl" id="login_username" name="login_username">
+        </div>
+        <div>
+          <label class="font-bold text-lime-800" for="login_password">Password</label>
+          <input type="password" class="border rounded-xl" id="login_password" name="login_password">
+        </div>
+        <div>
+          <button class="bg-lime-700 hover:bg-lime-900 rounded-xl h-auto px-2 py-1 text-white">Submit</button>
+        </div>
+      </div>
+      </form>
+      <div class="theback grid items-center place-content-around py-5">
+        <div class="font-bold text-amber-950 text-xl">Sign In</div>
+        <form action="/signup" method="POST">
+          <div>
+            <label class="font-bold text-amber-800" for="signup_username">Username</label>
+            <input type="text" class="border rounded-xl mt-1" id="signup_username" name="signup_username">
+          </div>
+          <div>
+            <div>
+              <label class="font-bold text-amber-800" for="signup_email">Email</label>
+            </div>
+            <div>
+              <input type="email" class="border rounded-xl mt-1" id="signup_email" name="signup_email">
+            </div>
+          </div>
+          <div>
+            <label class="font-bold text-amber-800" for="signup_password">Password</label>
+            <input type="password" class="border rounded-xl mt-1" id="signup_password" name="signup_password">
+          </div>
+          <div>
+            <button class="bg-amber-700 hover:bg-amber-900 rounded-xl h-auto px-2 py-1 text-white">Submit</button>
+          </div>
+      </div>
+    </div>
+    </form>
+    <p id="Uptext" class="m-2">Don't have an account?Create a new one</p>
+    <button id="flipButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Sign Up
+    </button>
+  </div>
+
+  <script>
+    document.getElementById('flipButton').addEventListener('click', function () {
+      var card = document.getElementById('card');
+      var button = document.getElementById('flipButton');
+      var text = document.getElementById('Uptext');
+      card.classList.toggle('flipped');
+      if (card.classList.contains('flipped')) {
+        text.textContent = 'Already have an account?'
+        button.textContent = 'Log In';
+      } else {
+        text.textContent = "Don't have an account?Create a new one."
+        button.textContent = 'Sign Up';
+      }
+    });
+  </script>
+</body>
+
+</html>
