@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/login.html");
     });
 
-app.get("/", (req, res) => { 
+app.get("/profile", (req, res) => { 
     res.render("index.ejs");
     });
 
@@ -88,6 +88,13 @@ async function fetchContests() {
         return [];
     }
 }
+
+app.get("/contests", async (req,res) => {
+    const contests = await fetchContests();
+    res.render("contests.ejs",{contests});
+});
+
+
 
 async function contests() {
     const contests = await fetchContests();
