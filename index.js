@@ -40,13 +40,14 @@ app.post('/signup', (req, res) => {
      password: Password,
      email: Email 
      })
+
+     
     
   });
-
+ //To get problems
   async function fetchProblems() {
-    const url = 'https://codeforces.com/api/problemset.problems';
     try {
-        const response = await axios.get(url);
+        const response = await axios.get(`https://codeforces.com/api/problemset.problems`);
         const problems = response.data.result.problems;
         return problems;
     } catch (error) {
@@ -54,16 +55,18 @@ app.post('/signup', (req, res) => {
         return [];
     }
 }
-
+//To get random problems
 function getRandomProblem(problems) {
-  if (problems.length === 0) {
-      return null;
-  }
   const randomIndex = Math.floor(Math.random() * problems.length);
   return problems[randomIndex];
 }
 
-async function main() {
+app.get("/problems", async (req, res) => { 
+    const problems = await fetchProblems();
+    res.render("problems.ejs", {problems});
+    });
+
+async function random() {
   const problems = await fetchProblems();
   const randomProblem = getRandomProblem(problems);
   if (randomProblem) {
@@ -73,6 +76,27 @@ async function main() {
       console.log('No problems found.');
   }
 }
+random();
+
+async function fetchContests() {
+    try {
+        const response = await axios.get(`https://codeforces.com/api/contest.list`);
+        const contests = response.data.result;
+        return contests;
+    }catch(error) {
+        console.error(`Failed to fetch contests:`, error);
+        return [];
+    }
+}
+
+async function contests() {
+    const contests = await fetchContests();
+    if (contests.length>0) {
+        console.log 
+    }
+}
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
