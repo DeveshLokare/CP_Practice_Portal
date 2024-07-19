@@ -50,9 +50,13 @@
         <div class="grid grid-cols-10 w-full p-5">
             <a class="flex text-xl justify-start font-bold" href="/home.html">CP Portal</a>
             <a class="flex justify-start" href="/problems">Problems</a>
-            <a class="flex justify-start" href="/contests">Contest</a>
+            <a class="flex justify-start" href="/contests">Contests</a>
             <a class="flex justify-start" href="">Resources</a>
-            <a class="col-start-10 flex justify-end" href="/login.html">Login/SignUp</a>
+            <% if(locals.username){ %>
+                <a class="col-start-10 flex justify-end" href="/index.ejs">
+                    <%= username %>
+                </a>
+                <% } %>
         </div>
     </nav>
 
@@ -94,7 +98,7 @@
                 </a>
                 <div class="flex justify-center col-span-2">
                     <button
-                        class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
+                        class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2" href="https://codeforces.com/enter?back=%2FcontestRegistration%2F<%=contests.id%>">Register</button>
                 </div>
                 <div class="flex justify-center">
                     <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
@@ -102,56 +106,7 @@
             </div>
     </div>
     <% }) %>
-        <!-- <div class="p-10 py-2">
-            <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
-                <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
-                <div class="flex justify-self-center" href="">Duration</div>
-                <div class="flex justify-self-center" href="">Time left</div>
-                <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round
-                    954 (Div. 3) </a>
-                <div class="flex justify-center col-span-2">
-                    <button
-                        class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
-                </div>
-                <div class="flex justify-center">
-                    <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-10 py-2">
-            <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
-                <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
-                <div class="flex justify-self-center" href="">Duration</div>
-                <div class="flex justify-self-center" href="">Time left</div>
-                <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round
-                    954 (Div. 3) </a>
-                <div class="flex justify-center col-span-2">
-                    <button
-                        class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
-                </div>
-                <div class="flex justify-center">
-                    <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-10 py-2">
-            <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-pink-200">
-                <div class="flex justify-self-center col-span-2" href="">Start/End time</div>
-                <div class="flex justify-self-center" href="">Duration</div>
-                <div class="flex justify-self-center" href="">Time left</div>
-                <a class="flex justify-center col-span-3" href="https://codeforces.com/contests/1986">Codeforces Round
-                    954 (Div. 3) </a>
-                <div class="flex justify-center col-span-2">
-                    <button
-                        class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white col-span-2 py-1 px-2">Register</button>
-                </div>
-                <div class="flex justify-center">
-                    <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white py-1 px-2">Add to calender</button>
-                </div>
-            </div>
-        </div> -->
+        
 
 </body>
 

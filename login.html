@@ -57,19 +57,19 @@
         <div class="font-bold text-amber-950 text-xl">Sign In</div>
         <div>
           <label class="font-bold text-amber-800" for="signup_username">Username</label>
-          <input type="text" class="border rounded-xl mt-1" id="signup_username">
+          <input type="text" class="border rounded-xl mt-1" id="signup_username" name="signup_username">
         </div>
         <div>
           <div>
             <label class="font-bold text-amber-800" for="signup_email">Email</label>
           </div>
           <div>
-            <input type="email" class="border rounded-xl mt-1" id="signup_email">
+            <input type="email" class="border rounded-xl mt-1" id="signup_email" name="signup_email">
           </div>
         </div>
         <div>
           <label class="font-bold text-amber-800" for="signup_password">Password</label>
-          <input type="password" class="border rounded-xl mt-1" id="signup_password">
+          <input type="password" class="border rounded-xl mt-1" id="signup_password" name="signup_password">
         </div>
         <div>
           <button class="bg-amber-700 hover:bg-amber-900 rounded-xl h-auto px-2 py-1 text-white">Submit</button>
@@ -89,11 +89,11 @@
       var text = document.getElementById('Uptext');
       card.classList.toggle('flipped');
       if (card.classList.contains('flipped')) {
-        text.textContent = 'Already had an account?'
+        text.textContent = 'Already have an account?'
         button.textContent = 'Log In';
       } else {
-        text.textContent = 'Create new account?'
-        button.textContent = 'Show Sign Up';
+        text.textContent = 'Dont have an account?Create new account.'
+        button.textContent = 'Sign Up';
       }
     });
   </script>
