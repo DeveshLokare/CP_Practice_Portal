@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Favourites</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="projectstyle.css">
+</head>
+<style>
+    body {
+        background: linear-gradient(to right, #5057a4, #99999b);
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown ul {
+        display: none;
+        position: absolute;
+        background-color: #38bdf8;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .dropdown:hover ul {
+        display: block;
+    }
+
+    .dropdown ul li {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown ul li:hover {
+        background-color: #005f73;
+    }
+</style>
+
+<body>
+    <nav class="flex items-center h-16 w-full text-center text-lg bg-slate-800 text-zinc-50">
+        <div class="grid grid-cols-10 w-full p-5">
+            <a class="flex text-xl justify-start font-bold" href="/home">CP Portal</a>
+            <a class="flex justify-start" href="/problems">Problems</a>
+            <a class="flex justify-start" href="/contests">Contest</a>
+            <a class="flex justify-start" href="">Resources</a>
+            <% if(locals.username){ %>
+                <a class="col-start-10 flex justify-end" href="/profile">
+                    <%=username%>
+                </a>
+                <% } %>
+        </div>
+    </nav>
+    <div class="px-10 pt-7 pb-2 font-bold">
+        <div class="grid grid-cols-10 w-full p-5 align-top border rounded-t-xl bg-blue-950">
+            <div class="flex justify-self-center text-white">Status</div>
+            <div class="flex justify-self-center text-white">Rating</div>
+            <div class="flex justify-self-center text-white col-span-3">Name</div>
+            <div class="flex justify-self-center text-white col-span-2">Site</div>
+            <div class="flex justify-self-center text-white col-span-2">Acceptance</div>
+            <div class="flex justify-self-center text-white col-start-10">Remove</div>
+        </div>
+    </div>
+
+    <div class="px-10 py-2">
+        <% favourites.forEach(favourites=> { %>
+            <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-blue-300">
+                <input class="" type="checkbox"></input>
+                <div class="flex justify-self-center" href="">
+                    <%= favourites.points %>
+                </div>
+                <a class="flex justify-self-center col-span-3"
+                    href="https://codeforces.com/problemset/problem/<%= favourites.contestId %>/<%= favourites.index %>/<%= favourites.type %>">
+                    <%= favourites.name %>
+                </a>
+                <a class="flex justify-self-center col-span-2" href="https://codeforces.com/">Codeforces</a>
+                <div class="flex justify-self-center col-span-2" href="">Acceptance</div>
+                <button class="bg-red-500 hover:bg-red-600 rounded-lg text-white"
+                    onclick="removeFavourite('<%= favourites %>')">Remove</button>
+            </div>
+            <% }); %>
+    </div>
+
+    <script>
+        function removeFavourite(problemId) {
+            fetch('/removeFavourite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: '<%= username %>', problemId })
+            })
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>

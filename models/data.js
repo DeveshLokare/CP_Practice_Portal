@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const signUpSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true
@@ -12,8 +12,23 @@ const signUpSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    favourites: {
+        type: [String],
+        default: []
+    },
+    streak: {
+         type: Number, 
+         default: 0
+    },
+    solvedProblems: {
+        type: [String],
+    },
+    lastSolvedDate: Date,
 });
 
-export const collection = mongoose.model("signup", signUpSchema);
+export const collection = mongoose.model("signup", userSchema);
+
+
+
 

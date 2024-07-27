@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Problems</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="projectstyle.css">
 </head>
@@ -50,7 +48,7 @@
 <body>
     <nav class="flex items-center h-16 w-full text-center text-lg bg-slate-800 text-zinc-50">
         <div class="grid grid-cols-10 w-full p-5">
-            <a class="flex text-xl justify-start font-bold" href="/home.html">CP Portal</a>
+            <a class="flex text-xl justify-start font-bold" href="/home">CP Portal</a>
             <a class="flex justify-start" href="/problems">Problems</a>
             <a class="flex justify-start" href="/contests">Contest</a>
             <a class="flex justify-start" href="">Resources</a>
@@ -98,7 +96,7 @@
             <div class="flex justify-self-center text-white col-span-3">Name</div>
             <div class="flex justify-self-center text-white col-span-2">Site</div>
             <div class="flex justify-self-center text-white col-span-2">Acceptance</div>
-            <div class="flex justify-self-center text-white col-start-10">Save</div>
+            <div class="flex justify-self-center text-white col-start-10">Favourites</div>
         </div>
     </div>
 
@@ -108,7 +106,15 @@
     <div class="px-10 py-2">
         <% problems.forEach(problems=> { %>
             <div class="grid grid-cols-10 w-full p-4 align-top border rounded-xl bg-blue-300">
-                <input class="" type="checkbox"></input>
+                <form class="col-start-1" method="POST" action="/solveProblem">
+                    <input type="hidden" name="username" value="<%= username %>">
+                    <input type="hidden" name="problemId" value="<%= problems.contestId %>-<%= problems.index %>">
+                 <input type="checkbox" name="solved" onchange="this.form.submit()" <% if
+                    (user.solvedProblems.includes(problems.problemId)) { %>
+                checked
+                <% } %> > 
+            </form>
+                    </input>
                 <div class="flex justify-self-center" href="">
                     <%= problems.points %>
                 </div>
@@ -118,7 +124,7 @@
                 </a>
                 <a class="flex justify-self-center col-span-2" href="https://codeforces.com/">Codeforces</a>
                 <div class="flex justify-self-center col-span-2" href="">Acceptance</div>
-                <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white dropdown">Save to List
+                <!-- <button class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white dropdown">Save to List
                     <ul class="absolute bg-sky-600 w-40 hidden rounded-lg">
                         <li>Create New List +</li>
                         <li>List-1</li>
@@ -129,8 +135,18 @@
             </div>
     </div>
     </div>
-    <% }); %>
+    <%# }); %>
+    
+        </body>
+        </html> -->
         
-</body>
-
+        <form class="col-start-10" method="POST" action="/addFavourite">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="problemId" value="<%= problems.contestId %>-<%= problems.index %>">
+            <button type="submit" class="bg-sky-500 hover:bg-sky-600 rounded-lg text-white">Add to Favourites</button>
+        </form>
+        </div>
+        <% }); %>
+            </div>
+            </body>
 </html>
