@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(to right, #fff, #8e94f6);
+      }
+      #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+      }
+      #container div{
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex justify-center p-10">
+      <h2
+        class="w-40 flex border pt-5 pb-5 rounded-xl font-bold border-neutral-950 justify-center text-xl hover:bg-slate-500"
+      >
+        EDIT PROFILE
+      </h2>
+    </div>
+    <div class="flex justify-center">
+      <div
+        class=" flex justify-center border rounded-xl border-neutral-700 h-full w-9/12 gird-cols-3 grid-rows-6">
+        <div class="pl-8 col-span-1 justify-center w-1/3">
+          <img
+            src="pictures/profile.avif"
+            class="h-80 p-5 border rounded-full"
+          />
+
+          <p class="text-base font-serif pl-28 pt-0.5 font-bold">Upload your picture</p>
+          <div class="pl-20 py-5">
+            <input
+              class="flex justify-center border rounded-l border-neutral-500 w-52"
+              type="file"
+              id="file"
+              name="file"
+            />
+          </div>
+
+          </div>
+          <div class=" justify-center w-2/3 col-span-2 float-right">
+            <div class="pt-20 pb-5 px-10">
+              <label for="old_username" class="pl-3 pr-8 font-bold"> Old Username : </label>
+              <input class="border rounded-xl w-80" type="text" id="old_username" />
+            </div>
+            <div class="px-10 py-5">
+                <label for="new_username" class="pl-3 pr-7 font-bold"> New Username : </label>
+                <input class="border rounded-xl w-80" type="text" id="new_username" />
+              </div>
+              <div class="px-10 py-5">
+                <label for="new_password" class="pl-3 pr-8 font-bold"> New Password : </label>
+                <input class="border rounded-xl w-80 px-3" type="text" id="new_password" />
+              </div>
+              <div class="px-10 py-5">
+                <label for="confirm_password" class="pl-3 pr-2 font-bold"> Confirm Password : </label>
+                <input class="border rounded-xl w-80" type="text" id="confirm_password" />
+              </div>
+        
+              
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
